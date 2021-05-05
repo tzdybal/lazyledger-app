@@ -20,7 +20,7 @@ coins="10000000000stake,100000000000samoleans"
 lazyledger-appd init $CHAINID --chain-id $CHAINID 
 lazyledger-appd keys add validator --keyring-backend="test"
 # this won't work because the some proto types are decalared twice and the logs output to stdout (dependency hell involving iavl)
-lazyledger-appd add-genesis-account $(lazyledger-appd keys show validator -a --keyring-backend="test") $coins
+lazyledger-appd add-genesis-account $(lazyledger-appd keys show validator -a) $coins
 lazyledger-appd add-genesis-account $GENACCT $coins
 lazyledger-appd gentx validator 5000000000stake --keyring-backend="test" --chain-id $CHAINID
 lazyledger-appd collect-gentxs
